@@ -5,8 +5,7 @@ import { trackMeta } from "@/data/mock";
 
 export const TrackCard = ({ track, count }: { track: Track; count: number }) => {
   const meta = trackMeta[track];
-  // @ts-expect-error dynamic icon
-  const Icon = LucideIcons[meta.icon] as LucideIcons.LucideIcon;
+  const Icon = (LucideIcons as unknown as Record<string, LucideIcons.LucideIcon>)[meta.icon];
   return (
     <Link
       to={`/projects?track=${encodeURIComponent(track)}`}
