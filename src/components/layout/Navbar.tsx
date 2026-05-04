@@ -1,14 +1,14 @@
 import { NavLink, Link } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ArrowRight } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { trackEvent } from "@/lib/analytics";
 
 const links = [
-  { to: "/", label: "Talent Index" },
+  { to: "/", label: "Home" },
+  { to: "/ecosystem", label: "Ecosystem" },
   { to: "/projects", label: "Projects" },
-  { to: "/builders", label: "Builders" },
-  { to: "/tracks", label: "Tracks" },
-  { to: "/analytics", label: "Analytics" },
+  { to: "/events", label: "Events" },
 ];
 
 export const Navbar = () => {
@@ -21,8 +21,8 @@ export const Navbar = () => {
             <span className="font-display font-bold text-primary-foreground">A</span>
           </span>
           <div className="leading-tight">
-            <div className="font-display font-semibold text-sm">Avalanche Team1</div>
-            <div className="text-[10px] uppercase tracking-widest text-muted-foreground">Kenya · Talent Index</div>
+            <div className="font-display font-semibold text-sm">Team1 Kenya</div>
+            <div className="text-[10px] uppercase tracking-widest text-muted-foreground">Mini Hack 2026</div>
           </div>
         </Link>
 
@@ -44,8 +44,13 @@ export const Navbar = () => {
         </nav>
 
         <div className="hidden lg:flex items-center gap-2">
-          <Button asChild variant="brand" size="sm">
-            <Link to="/submit">Submit Project</Link>
+          <Button
+            asChild
+            variant="brand"
+            size="sm"
+            onClick={() => trackEvent("cta_click", { location: "navbar" })}
+          >
+            <Link to="/apply">Apply Now <ArrowRight className="h-3.5 w-3.5" /></Link>
           </Button>
         </div>
 
@@ -71,7 +76,7 @@ export const Navbar = () => {
               </NavLink>
             ))}
             <Button asChild variant="brand" className="mt-2">
-              <Link to="/submit" onClick={() => setOpen(false)}>Submit Project</Link>
+              <Link to="/apply" onClick={() => setOpen(false)}>Apply Now</Link>
             </Button>
           </div>
         </div>

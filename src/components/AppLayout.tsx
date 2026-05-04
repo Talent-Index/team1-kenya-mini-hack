@@ -1,6 +1,6 @@
 import { Navbar } from "./layout/Navbar";
 import { Footer } from "./layout/Footer";
-import { FloatingAskAIButton } from "./FloatingAskAIButton";
+import { StickyApplyCTA } from "./StickyApplyCTA";
 import { Outlet } from "react-router-dom";
 
 export const AppLayout = () => (
@@ -10,6 +10,6 @@ export const AppLayout = () => (
       <Outlet />
     </main>
     <Footer />
-    <FloatingAskAIButton />
+    <StickyApplyCTA />
   </div>
 );
