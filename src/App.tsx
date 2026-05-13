@@ -9,6 +9,7 @@ import EcosystemMap from "./pages/EcosystemMap";
 import Projects from "./pages/Projects";
 import ProjectDetail from "./pages/ProjectDetail";
 import Events from "./pages/Events";
+import Resources from "./pages/Resources";
 import Apply from "./pages/Apply";
 import Success from "./pages/Success";
 import NotFound from "./pages/NotFound";
@@ -28,6 +29,7 @@ const App = () => (
             <Route path="/projects" element={<Projects />} />
             <Route path="/projects/:slug" element={<ProjectDetail />} />
             <Route path="/events" element={<Events />} />
+            <Route path="/resources" element={<Resources />} />
             <Route path="/apply" element={<Apply />} />
             <Route path="/success" element={<Success />} />
           </Route>

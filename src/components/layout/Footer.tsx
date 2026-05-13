@@ -18,6 +18,7 @@ export const Footer = () => (
           <li><Link to="/ecosystem" className="hover:text-foreground text-muted-foreground">Ecosystem Map</Link></li>
           <li><Link to="/projects" className="hover:text-foreground text-muted-foreground">Projects</Link></li>
           <li><Link to="/events" className="hover:text-foreground text-muted-foreground">Events</Link></li>
+          <li><Link to="/resources" className="hover:text-foreground text-muted-foreground">Resources</Link></li>
         </ul>
       </div>
       <div>
