@@ -9,6 +9,7 @@ const links = [
   { to: "/ecosystem", label: "Ecosystem" },
   { to: "/projects", label: "Projects" },
   { to: "/events", label: "Events" },
+  { to: "/resources", label: "Resources" },
 ];
 
 export const Navbar = () => {

@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight, Rocket, Users, Layers, HandCoins, Calendar, Zap, Globe } from "lucide-react";
+import { ArrowRight, Rocket, Layers, Calendar, Zap, Globe, GraduationCap, Github } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
 import { Button } from "@/components/ui/button";
 import { SectionHeader } from "@/components/SectionHeader";
 import { MetricCard } from "@/components/MetricCard";
 import { CohortTimeline } from "@/components/CohortTimeline";
-import { SocialProof } from "@/components/SocialProof";
+import { AcademyTracks } from "@/components/AcademyTracks";
+import { FeaturedBuilders } from "@/components/FeaturedBuilders";
 import { FAQ } from "@/components/FAQ";
 import { useEcosystemProjects } from "@/lib/github";
 import { EcosystemCard } from "@/components/EcosystemCard";
@@ -15,11 +16,11 @@ import { trackEvent } from "@/lib/analytics";
 const Index = () => {
   const { data: projects } = useEcosystemProjects();
   const recentProjects = projects?.slice(0, 6) ?? [];
-  const totalProjects = projects?.length ?? 115;
+  const totalProjects = projects?.length ?? 0;
 
   return (
     <div>
-      {/* ─── HERO: AWARENESS ─── */}
+      {/* ─── HERO ─── */}
       <section className="relative overflow-hidden">
         <img src={heroBg} alt="" className="absolute inset-0 h-full w-full object-cover opacity-50" />
         <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-background/80 to-background" />
@@ -30,15 +31,15 @@ const Index = () => {
             transition={{ duration: 0.6 }}
             className="max-w-3xl"
           >
-            <span className="inline-flex items-center gap-2 rounded-full glass border-hairline px-3 py-1 text-xs uppercase tracking-widest text-muted-foreground mb-6">
+            <span className="inline-flex items-center gap-2 rounded-full glass border-hairline px-3 py-1 text-[10px] font-mono uppercase tracking-[0.2em] text-muted-foreground mb-6">
               <span className="h-1.5 w-1.5 rounded-full bg-brand-orange animate-pulse" />
-              June – August 2026 · Kenya
+              June – August 2026 · Nairobi · Avalanche
             </span>
             <h1 className="font-display text-4xl sm:text-5xl md:text-7xl font-semibold tracking-tight leading-[1.05]">
               Team1 Kenya <span className="text-gradient-brand">Mini Hack</span>
             </h1>
             <p className="mt-6 text-lg text-muted-foreground max-w-2xl">
-              A 3-month builder program for Kenyan developers, founders, and teams shipping real products on Avalanche. 
+              A 3-month builder program for Kenyan developers, founders, and teams shipping real products on Avalanche.
               Payments → Gamification → Agentic Systems → Hackathon.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
@@ -51,12 +52,11 @@ const Index = () => {
                 <Link to="/apply">Apply Now <ArrowRight className="h-4 w-4" /></Link>
               </Button>
               <Button asChild variant="glass" size="lg">
-                <Link to="/ecosystem">Explore Ecosystem</Link>
+                <Link to="/resources">Explore Resources</Link>
               </Button>
             </div>
           </motion.div>
 
-          {/* Urgency strip */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -67,33 +67,58 @@ const Index = () => {
             Applications open — Cohort 1 (Payments) starts June 2026
           </motion.div>
 
-          {/* Metrics */}
+          {/* Real metrics only */}
           <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-3">
-            <MetricCard label="Projects Built" value={totalProjects} icon={Layers} accent="red" />
-            <MetricCard label="Active Builders" value="200+" icon={Users} accent="orange" />
-            <MetricCard label="Monthly Tracks" value={3} icon={Rocket} accent="purple" />
-            <MetricCard label="Grants & Prizes" value="$50K+" icon={HandCoins} accent="blue" />
+            <MetricCard label="Projects Indexed" value={totalProjects || "…"} icon={Layers} accent="red" />
+            <MetricCard label="Monthly Tracks" value={3} icon={Rocket} accent="orange" />
+            <MetricCard label="Hackathon" value="Aug 28" icon={Calendar} accent="purple" />
+            <MetricCard label="Source" value="GitHub" icon={Github} accent="blue" />
           </div>
         </div>
       </section>
 
-      {/* ─── TRUST: SOCIAL PROOF ─── */}
+      {/* ─── FEATURED BUILDERS (real GitHub data) ─── */}
       <section className="container py-16 md:py-20">
         <SectionHeader
-          eyebrow="Builder Stories"
-          title="Hear from the ecosystem"
-          description="Real builders who shipped through Team1 Kenya programs."
-          align="center"
+          eyebrow="Featured Builders"
+          title="Real projects, shipping now"
+          description="Top repositories from the Talent-Index Kenya organization — pulled live from GitHub."
+          href="/ecosystem"
+          hrefLabel="View all"
         />
-        <SocialProof />
+        <FeaturedBuilders />
       </section>
 
-      {/* ─── PROOF: REAL PROJECTS ─── */}
+      {/* ─── ACADEMY TRACKS ─── */}
+      <section className="container py-16 md:py-20">
+        <SectionHeader
+          eyebrow="Builder Tracks"
+          title="Each cohort maps to Avalanche Academy"
+          description="Structured learning paths so you graduate the program with real, deployable skills."
+          href="/resources"
+          hrefLabel="Resource hub"
+        />
+        <AcademyTracks />
+        <div className="mt-6 flex justify-center">
+          <Button asChild variant="glass" size="sm">
+            <a
+              href="https://build.avax.network/academy"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => trackEvent("cta_click", { location: "academy_section" })}
+            >
+              <GraduationCap className="h-4 w-4" /> Open Avalanche Academy
+            </a>
+          </Button>
+        </div>
+      </section>
+
+      {/* ─── ECOSYSTEM PREVIEW ─── */}
       <section className="container py-16 md:py-20">
         <SectionHeader
           eyebrow="Ecosystem"
-          title="Real projects shipping on Avalanche"
-          description={`${totalProjects} projects built by Kenyan teams — pulled live from GitHub.`}
+          title="What's being built"
+          description={totalProjects ? `${totalProjects} live projects in the index.` : "Loading the index…"}
           href="/ecosystem"
         />
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -101,15 +126,9 @@ const Index = () => {
             <EcosystemCard key={p.id} project={p} />
           ))}
         </div>
-        {recentProjects.length === 0 && (
-          <div className="rounded-2xl bg-gradient-card border-hairline p-12 text-center">
-            <div className="h-8 w-8 rounded-full bg-secondary mx-auto mb-3 animate-pulse" />
-            <p className="text-muted-foreground text-sm">Loading projects from GitHub...</p>
-          </div>
-        )}
       </section>
 
-      {/* ─── COHORT NARRATIVE: TIMELINE ─── */}
+      {/* ─── COHORT TIMELINE ─── */}
       <section className="container py-16 md:py-20">
         <SectionHeader
           eyebrow="The Program"
@@ -124,8 +143,8 @@ const Index = () => {
       <section className="container py-16 md:py-20">
         <SectionHeader
           eyebrow="Events"
-          title="Upcoming workshops & meetups"
-          description="In-person and virtual sessions throughout the program."
+          title="Workshops, meetups & demo days"
+          description="In-person in Nairobi and streamed online via Luma."
           href="/events"
           hrefLabel="View all events"
         />
@@ -152,7 +171,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* ─── VISIBILITY LAYER ─── */}
+      {/* ─── WHY APPLY ─── */}
       <section className="container py-16 md:py-20">
         <SectionHeader
           eyebrow="Why Apply"
@@ -162,9 +181,9 @@ const Index = () => {
         />
         <div className="grid gap-4 md:grid-cols-3">
           {[
-            { icon: Globe, title: "Ecosystem distribution", desc: "Get featured across Avalanche community channels, socials, and editorial." },
-            { icon: Users, title: "Investor & partner access", desc: "Surface in front of partners actively scouting Kenyan builder teams." },
-            { icon: Rocket, title: "Ship with support", desc: "Mentorship, workshops, and resources to take your project to market." },
+            { icon: Globe, title: "Ecosystem distribution", desc: "Get featured across Avalanche community channels and Team1 socials." },
+            { icon: GraduationCap, title: "Academy + mentorship", desc: "Structured curriculum mapped to Avalanche Academy modules." },
+            { icon: Rocket, title: "Ship with support", desc: "Workshops, code reviews, and grant pathways to take you to market." },
           ].map((c) => (
             <div key={c.title} className="rounded-2xl bg-gradient-card border-hairline p-6 hover:border-primary/40 transition-colors">
               <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-brand shadow-glow mb-4">
@@ -179,11 +198,7 @@ const Index = () => {
 
       {/* ─── FAQ ─── */}
       <section className="container py-16 md:py-20">
-        <SectionHeader
-          eyebrow="FAQ"
-          title="Common questions"
-          align="center"
-        />
+        <SectionHeader eyebrow="FAQ" title="Common questions" align="center" />
         <div className="max-w-2xl mx-auto">
           <FAQ />
         </div>
@@ -196,7 +211,7 @@ const Index = () => {
           <div className="absolute -inset-x-20 -bottom-20 h-40 bg-gradient-brand opacity-30 blur-3xl" />
           <div className="relative">
             <h2 className="font-display text-3xl md:text-5xl font-semibold tracking-tight">Ready to build on Avalanche?</h2>
-            <p className="mt-4 text-muted-foreground max-w-xl mx-auto">Join the Mini Hack. Ship real products. Get grants, visibility, and investor access.</p>
+            <p className="mt-4 text-muted-foreground max-w-xl mx-auto">Join the Mini Hack. Ship real products. Plug into the Avalanche ecosystem.</p>
             <Button
               asChild
               variant="brand"
