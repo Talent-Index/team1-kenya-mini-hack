@@ -1,8 +1,9 @@
 import { NavLink, Link } from "react-router-dom";
-import { Menu, X, ArrowRight } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { trackEvent } from "@/lib/analytics";
+import { ApplyButton } from "@/components/ApplyButton";
+import { LUMA_URL } from "@/components/ApplyButton";
 
 const links = [
   { to: "/", label: "Home" },
@@ -17,13 +18,13 @@ export const Navbar = () => {
   return (
     <header className="sticky top-0 z-50 glass border-b border-border/60">
       <div className="container flex h-16 items-center justify-between gap-6">
-        <Link to="/" className="flex items-center gap-2 group">
-          <span className="relative inline-flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-brand shadow-glow">
-            <span className="font-display font-bold text-primary-foreground">A</span>
+        <Link to="/" className="flex items-center gap-2.5 group">
+          <span className="relative inline-flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-brand shadow-glow font-display font-bold text-primary-foreground">
+            t<span className="text-brand-red absolute top-1 right-1 text-[10px]">1</span>
           </span>
           <div className="leading-tight">
-            <div className="font-display font-semibold text-sm">Team1 Kenya</div>
-            <div className="text-[10px] uppercase tracking-widest text-muted-foreground">Mini Hack 2026</div>
+            <div className="font-display font-semibold text-sm tracking-tight">Team1 Kenya</div>
+            <div className="text-[9px] uppercase tracking-[0.22em] text-muted-foreground">Mini Hack · 2026</div>
           </div>
         </Link>
 
@@ -45,14 +46,7 @@ export const Navbar = () => {
         </nav>
 
         <div className="hidden lg:flex items-center gap-2">
-          <Button
-            asChild
-            variant="brand"
-            size="sm"
-            onClick={() => trackEvent("cta_click", { location: "navbar" })}
-          >
-            <Link to="/apply">Apply Now <ArrowRight className="h-3.5 w-3.5" /></Link>
-          </Button>
+          <ApplyButton location="navbar" label="Apply Now" size="sm" />
         </div>
 
         <button className="lg:hidden p-2" onClick={() => setOpen(!open)} aria-label="Menu">
@@ -76,8 +70,10 @@ export const Navbar = () => {
                 {l.label}
               </NavLink>
             ))}
-            <Button asChild variant="brand" className="mt-2">
-              <Link to="/apply" onClick={() => setOpen(false)}>Apply Now</Link>
+            <Button asChild variant="brand" className="mt-2 animate-pulse-red">
+              <a href={LUMA_URL} target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}>
+                Apply on Luma
+              </a>
             </Button>
           </div>
         </div>
@@ -85,3 +81,4 @@ export const Navbar = () => {
     </header>
   );
 };
+
