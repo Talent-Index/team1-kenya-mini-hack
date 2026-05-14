@@ -9,7 +9,9 @@ type EventName =
   | "project_click"
   | "filter_change"
   | "rsvp_click"
-  | "calendar_add";
+  | "calendar_add"
+  | "resource_click"
+  | "community_click";
 
 interface EventData {
   [key: string]: string | number | boolean;
