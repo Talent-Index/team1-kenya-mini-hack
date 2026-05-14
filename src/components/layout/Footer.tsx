@@ -24,9 +24,10 @@ export const Footer = () => (
       <div>
         <h4 className="text-xs uppercase tracking-widest text-muted-foreground mb-3">Builders</h4>
         <ul className="space-y-2 text-sm">
-          <li><Link to="/apply" className="hover:text-foreground text-muted-foreground">Apply to Mini Hack</Link></li>
-          <li><a href="https://lu.ma/Team1Africa" target="_blank" rel="noopener noreferrer" className="hover:text-foreground text-muted-foreground">RSVP Events</a></li>
+          <li><a href="https://luma.com/Team1Africa" target="_blank" rel="noopener noreferrer" className="hover:text-foreground text-muted-foreground">Apply on Luma</a></li>
+          <li><a href="https://luma.com/Team1Africa" target="_blank" rel="noopener noreferrer" className="hover:text-foreground text-muted-foreground">RSVP Events</a></li>
           <li><a href="https://github.com/Talent-Index" target="_blank" rel="noopener noreferrer" className="hover:text-foreground text-muted-foreground">GitHub</a></li>
+          <li><a href="https://build.avax.network/academy" target="_blank" rel="noopener noreferrer" className="hover:text-foreground text-muted-foreground">Avalanche Academy</a></li>
         </ul>
       </div>
       <div>
