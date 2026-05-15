@@ -11,12 +11,10 @@ import { HeroMiniHack } from "@/components/HeroMiniHack";
 import { ApplyButton } from "@/components/ApplyButton";
 import { FAQ } from "@/components/FAQ";
 import { useEcosystemProjects } from "@/lib/github";
-import { EcosystemCard } from "@/components/EcosystemCard";
 import { ProjectShowcase } from "@/components/ProjectShowcase";
 
 const Index = () => {
   const { data: projects } = useEcosystemProjects();
-  const recentProjects = projects?.slice(0, 6) ?? [];
   const totalProjects = projects?.length ?? 0;
 
   return (
