@@ -12,6 +12,7 @@ import { ApplyButton } from "@/components/ApplyButton";
 import { FAQ } from "@/components/FAQ";
 import { useEcosystemProjects } from "@/lib/github";
 import { EcosystemCard } from "@/components/EcosystemCard";
+import { ProjectShowcase } from "@/components/ProjectShowcase";
 
 const Index = () => {
   const { data: projects } = useEcosystemProjects();
