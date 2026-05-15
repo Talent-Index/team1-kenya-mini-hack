@@ -2,8 +2,8 @@ import { NavLink, Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { ApplyButton } from "@/components/ApplyButton";
-import { LUMA_URL } from "@/components/ApplyButton";
+import { ApplyButton, LUMA_URL } from "@/components/ApplyButton";
+import logo from "@/assets/team1-logo.png";
 
 const links = [
   { to: "/", label: "Home" },
@@ -19,12 +19,12 @@ export const Navbar = () => {
     <header className="sticky top-0 z-50 glass border-b border-border/60">
       <div className="container flex h-16 items-center justify-between gap-6">
         <Link to="/" className="flex items-center gap-2.5 group">
-          <span className="relative inline-flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-brand shadow-glow font-display font-bold text-primary-foreground">
-            t<span className="text-brand-red absolute top-1 right-1 text-[10px]">1</span>
+          <span className="relative inline-flex h-9 w-9 items-center justify-center rounded-lg overflow-hidden ring-1 ring-brand-red/30 shadow-glow">
+            <img src={logo} alt="Team1 Africa" className="h-full w-full object-cover" />
           </span>
           <div className="leading-tight">
-            <div className="font-display font-semibold text-sm tracking-tight">Team1 Kenya</div>
-            <div className="text-[9px] uppercase tracking-[0.22em] text-muted-foreground">Mini Hack · 2026</div>
+            <div className="font-display font-semibold text-sm tracking-tight">Team1 Africa</div>
+            <div className="text-[9px] uppercase tracking-[0.22em] text-muted-foreground">Mini Hack · Kenya 2026</div>
           </div>
         </Link>
 

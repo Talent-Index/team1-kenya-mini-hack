@@ -1,16 +1,40 @@
 import { Link } from "react-router-dom";
+import { Send, MessageCircle, Twitter, Hash, Github } from "lucide-react";
+import logo from "@/assets/team1-logo.png";
+
+const socials = [
+  { label: "Telegram", href: "https://t.me/avaxDAOAfrica", icon: Send },
+  { label: "WhatsApp", href: "https://chat.whatsapp.com/DIxi7F6uv8B7FhMr0soThA?mode=gi_t", icon: MessageCircle },
+  { label: "X (Twitter)", href: "https://x.com/avaxafrica?s=21", icon: Twitter },
+  { label: "Discord", href: "https://discord.gg/team1", icon: Hash },
+  { label: "GitHub", href: "https://github.com/Talent-Index", icon: Github },
+];
 
 export const Footer = () => (
   <footer className="border-t border-border/60 mt-20">
     <div className="container py-12 grid gap-8 md:grid-cols-4">
       <div>
-        <div className="flex items-center gap-2 mb-3">
-          <span className="h-8 w-8 rounded-lg bg-gradient-brand flex items-center justify-center font-display font-bold text-primary-foreground">A</span>
-          <span className="font-display font-semibold">Team1 Kenya</span>
-        </div>
+        <Link to="/" className="flex items-center gap-2.5 mb-3">
+          <img src={logo} alt="Team1 Africa" className="h-8 w-8 rounded-lg" />
+          <span className="font-display font-semibold tracking-tight">Team1 Africa</span>
+        </Link>
         <p className="text-sm text-muted-foreground max-w-xs">
           Building the future of Web3 from Kenya. Payments, gaming, AI agents — all on Avalanche.
         </p>
+        <div className="flex items-center gap-1.5 mt-4">
+          {socials.map((s) => (
+            <a
+              key={s.label}
+              href={s.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={s.label}
+              className="p-2 rounded-md text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
+            >
+              <s.icon className="h-4 w-4" />
+            </a>
+          ))}
+        </div>
       </div>
       <div>
         <h4 className="text-xs uppercase tracking-widest text-muted-foreground mb-3">Discover</h4>
@@ -26,7 +50,7 @@ export const Footer = () => (
         <ul className="space-y-2 text-sm">
           <li><a href="https://luma.com/Team1Africa" target="_blank" rel="noopener noreferrer" className="hover:text-foreground text-muted-foreground">Apply on Luma</a></li>
           <li><a href="https://luma.com/Team1Africa" target="_blank" rel="noopener noreferrer" className="hover:text-foreground text-muted-foreground">RSVP Events</a></li>
-          <li><a href="https://github.com/Talent-Index" target="_blank" rel="noopener noreferrer" className="hover:text-foreground text-muted-foreground">GitHub</a></li>
+          <li><a href="https://github.com/Talent-Index" target="_blank" rel="noopener noreferrer" className="hover:text-foreground text-muted-foreground">GitHub Org</a></li>
           <li><a href="https://build.avax.network/academy" target="_blank" rel="noopener noreferrer" className="hover:text-foreground text-muted-foreground">Avalanche Academy</a></li>
         </ul>
       </div>
@@ -37,7 +61,7 @@ export const Footer = () => (
       </div>
     </div>
     <div className="border-t border-border/60 py-6 text-center text-xs text-muted-foreground">
-      © {new Date().getFullYear()} Avalanche Team1 Kenya · Mini Hack
+      © {new Date().getFullYear()} Avalanche Team1 Africa · Mini Hack Kenya
     </div>
   </footer>
 );
