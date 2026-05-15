@@ -18,12 +18,12 @@ export const Navbar = () => {
   return (
     <header className="sticky top-0 z-50 glass border-b border-border/60">
       <div className="container flex h-16 items-center justify-between gap-6">
-        <Link to="/" className="flex items-center gap-2.5 group">
-          <span className="relative inline-flex h-9 w-9 items-center justify-center rounded-lg overflow-hidden ring-1 ring-brand-red/30 shadow-glow">
-            <img src={logo} alt="Team1 Africa" className="h-full w-full object-cover" />
+        <Link to="/" className="flex items-center gap-3 group transition-opacity hover:opacity-80">
+          <span className="relative inline-flex items-center justify-center rounded-lg bg-white px-2.5 py-1.5 ring-1 ring-brand-red/30 shadow-glow">
+            <img src={logo} alt="Team1 Kenya" className="h-5 md:h-6 w-auto object-contain" draggable={false} />
           </span>
-          <div className="leading-tight">
-            <div className="font-display font-semibold text-sm tracking-tight">Team1 Africa</div>
+          <div className="leading-tight hidden sm:block">
+            <div className="font-display font-semibold text-sm tracking-tight">Team1 Kenya</div>
             <div className="text-[9px] uppercase tracking-[0.22em] text-muted-foreground">Mini Hack · Kenya 2026</div>
           </div>
         </Link>

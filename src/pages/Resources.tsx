@@ -65,7 +65,7 @@ const groups: Group[] = [
       { title: "Avalanche Foundation Grants", description: "Funding for builders shipping on Avalanche.", href: "https://www.avax.network/grants", icon: HandCoins },
       { title: "Codebase Accelerator", description: "Avalanche's accelerator for early-stage teams.", href: "https://www.codebase.xyz/", icon: GraduationCap },
       { title: "Talent-Index GitHub", description: "Browse and contribute to Kenyan ecosystem repos.", href: "https://github.com/Talent-Index", icon: Github },
-      { title: "Team1 Africa Events", description: "RSVP to workshops, demo days, and hackathons.", href: "https://lu.ma/Team1Africa", icon: Globe },
+      { title: "Team1 Kenya Events", description: "RSVP to workshops, demo days, and hackathons.", href: "https://lu.ma/Team1Africa", icon: Globe },
     ],
   },
 ];

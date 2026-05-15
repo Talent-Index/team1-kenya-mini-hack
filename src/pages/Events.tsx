@@ -7,7 +7,7 @@ const Events = () => (
   <div className="container py-12 md:py-16">
     <SectionHeader
       eyebrow="Upcoming Cohorts & Sessions"
-      title="Team1 Africa — Live Events"
+      title="Team1 Kenya — Live Events"
       description="Register for the tracks, workshops, and IRL events most relevant to your builder journey."
     />
 

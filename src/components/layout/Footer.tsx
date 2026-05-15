@@ -14,9 +14,11 @@ export const Footer = () => (
   <footer className="border-t border-border/60 mt-20">
     <div className="container py-12 grid gap-8 md:grid-cols-4">
       <div>
-        <Link to="/" className="flex items-center gap-2.5 mb-3">
-          <img src={logo} alt="Team1 Africa" className="h-8 w-8 rounded-lg" />
-          <span className="font-display font-semibold tracking-tight">Team1 Africa</span>
+        <Link to="/" className="flex items-center gap-3 mb-3">
+          <span className="inline-flex items-center justify-center rounded-lg bg-white px-2 py-1.5 ring-1 ring-brand-red/30">
+            <img src={logo} alt="Team1 Kenya" className="h-5 w-auto object-contain" />
+          </span>
+          <span className="font-display font-semibold tracking-tight">Team1 Kenya</span>
         </Link>
         <p className="text-sm text-muted-foreground max-w-xs">
           Building the future of Web3 from Kenya. Payments, gaming, AI agents — all on Avalanche.
@@ -61,7 +63,7 @@ export const Footer = () => (
       </div>
     </div>
     <div className="border-t border-border/60 py-6 text-center text-xs text-muted-foreground">
-      © {new Date().getFullYear()} Avalanche Team1 Africa · Mini Hack Kenya
+      © {new Date().getFullYear()} Avalanche Team1 Kenya · Mini Hack Kenya
     </div>
   </footer>
 );
