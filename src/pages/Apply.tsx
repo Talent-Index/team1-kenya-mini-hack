@@ -14,7 +14,7 @@ const Apply = () => {
         Redirecting you to Luma…
       </h1>
       <p className="mt-3 text-muted-foreground">
-        Applications are managed on the official Team1 Africa Luma page.
+        Applications are managed on the official Team1 Kenya Luma page.
       </p>
       <div className="mt-8 flex justify-center">
         <ApplyButton location="apply_redirect" label="Open Luma" size="lg" />

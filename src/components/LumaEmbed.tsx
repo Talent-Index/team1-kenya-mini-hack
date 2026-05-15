@@ -6,7 +6,7 @@ interface LumaEmbedProps {
 }
 
 /**
- * Official Team1 Africa Luma calendar embed — premium card container with red glow.
+ * Official Team1 Kenya Luma calendar embed — premium card container with red glow.
  */
 export const LumaEmbed = ({ height = 560, showCta = true }: LumaEmbedProps) => (
   <div className="relative">
@@ -19,7 +19,7 @@ export const LumaEmbed = ({ height = 560, showCta = true }: LumaEmbedProps) => (
         allowFullScreen
         aria-hidden="false"
         tabIndex={0}
-        title="Team1 Africa — Upcoming Cohorts & Sessions"
+        title="Team1 Kenya — Upcoming Cohorts & Sessions"
         loading="lazy"
       />
     </div>
