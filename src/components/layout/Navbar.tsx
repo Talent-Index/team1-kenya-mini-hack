@@ -2,8 +2,8 @@ import { NavLink, Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { ApplyButton } from "@/components/ApplyButton";
-import { LUMA_URL } from "@/components/ApplyButton";
+import { ApplyButton, LUMA_URL } from "@/components/ApplyButton";
+import logo from "@/assets/team1-logo.png";
 
 const links = [
   { to: "/", label: "Home" },
