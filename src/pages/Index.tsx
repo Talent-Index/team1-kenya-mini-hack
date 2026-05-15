@@ -63,21 +63,18 @@ const Index = () => {
         <BuilderResources />
       </section>
 
-      {/* ─── ECOSYSTEM ─── */}
+      {/* ─── PROJECT SHOWCASE (Retro9000-style) ─── */}
       <section className="container py-16 md:py-24">
         <SectionHeader
-          eyebrow="Ecosystem Map"
-          title="What's being built in Kenya"
-          description={totalProjects ? `${totalProjects} live projects in the index — pulled from the Talent-Index GitHub org.` : "Loading the ecosystem index…"}
+          eyebrow="Project Showcase"
+          title="Projects built during the Mini Hack"
+          description={totalProjects ? `${totalProjects} live projects indexed from Talent-Index. Filter by category to explore what's shipping in Kenya.` : "Loading the ecosystem index…"}
           href="/ecosystem"
           hrefLabel="Open full map"
         />
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {recentProjects.map((p) => (
-            <EcosystemCard key={p.id} project={p} />
-          ))}
-        </div>
+        <ProjectShowcase limit={9} />
       </section>
+
 
       {/* ─── FEATURED BUILDERS ─── */}
       <section className="container py-16 md:py-24">
