@@ -122,7 +122,7 @@ export const ProjectShowcase = ({ limit = 9 }: { limit?: number }) => {
               key={f}
               onClick={() => {
                 setFilter(f);
-                trackEvent("filter_click", { filter: f });
+                trackEvent("filter_change", { filter: f });
               }}
               className={`shrink-0 px-3.5 py-1.5 rounded-full text-xs font-medium tracking-wide border transition-all ${
                 active
