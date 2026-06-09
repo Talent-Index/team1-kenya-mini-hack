@@ -1,9 +1,13 @@
 import {
   BookOpen, Droplet, Wallet, GraduationCap, HandCoins, Network,
   Boxes, Workflow, Github, FileCode2, Shield, Globe, ArrowUpRight,
+  GitBranch, CheckSquare, BookMarked,
 } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 import { SectionHeader } from "@/components/SectionHeader";
+
+const TALLY_URL = "https://tally.so/r/rjv4Zo";
+const HANDBOOK_URL = "https://futuristic-dog-9aa.notion.site/Avalanche-Team1-Kenya-Mini-Hack-2a61447232f181d182fec1d63817b3bd?source=copy_link";
 
 interface Resource {
   title: string;
@@ -70,6 +74,51 @@ const groups: Group[] = [
   },
 ];
 
+const miniHackItems = [
+  {
+    label: "COHORT 1 — PAYMENTS",
+    title: "Payments Template Repo",
+    description: "Starter repo for Cohort 1. Fork this to begin. Includes Hardhat config, Fuji setup, and starter contracts.",
+    href: "https://github.com/Talent-Index/minihack-cohort1-template",
+    icon: GitBranch,
+  },
+  {
+    label: "COHORT 2 — GAMING",
+    title: "Gaming Template Repo",
+    description: "Starter repo for Cohort 2. NFT contracts, game logic scaffold, and IPFS integration starter.",
+    href: "https://github.com/Talent-Index/minihack-cohort2-template",
+    icon: GitBranch,
+  },
+  {
+    label: "COHORT 3 — AGENTIC AI",
+    title: "Agentic AI Template Repo",
+    description: "Starter repo for Cohort 3. Claude API integration, Hardhat config, and RAG scaffolding.",
+    href: "https://github.com/Talent-Index/minihack-cohort3-template",
+    icon: GitBranch,
+  },
+  {
+    label: "QUEST PLATFORM",
+    title: "Tally",
+    description: "Submit weekly quests and upload Avalanche Academy certificates. All cohort deliverables are submitted through Tally.",
+    href: TALLY_URL,
+    icon: CheckSquare,
+  },
+  {
+    label: "PROGRAMME HANDBOOK",
+    title: "Developer Handbook",
+    description: "Full programme structure, session schedule, deliverables, quest tables, and grading rubric for all three cohorts.",
+    href: HANDBOOK_URL,
+    icon: BookMarked,
+  },
+  {
+    label: "GITHUB ORG",
+    title: "Talent Index KE on GitHub",
+    description: "116 repos from Kenyan builders. Browse the ecosystem, find collaborators, and submit your project.",
+    href: "https://github.com/Talent-Index",
+    icon: Github,
+  },
+];
+
 const Resources = () => (
   <div className="container py-12 md:py-16">
     <Helmet>
@@ -83,6 +132,42 @@ const Resources = () => (
       title="Everything you need to ship on Avalanche"
       description="Curated docs, Academy modules, tools, and grants — pulled directly from official Avalanche sources."
     />
+
+    {/* ─── MINI HACK PROGRAMME ─── */}
+    <section className="mb-16">
+      <div className="flex items-baseline justify-between mb-5">
+        <div>
+          <div className="text-[10px] font-mono uppercase tracking-[0.2em] text-muted-foreground mb-1">
+            Mini Hack Programme
+          </div>
+          <h3 className="font-display text-xl font-semibold tracking-tight">Start here for Mini Hack</h3>
+          <p className="text-sm text-muted-foreground mt-1 max-w-2xl">
+            Template repos, quest platform, handbook, and session recordings — everything you need for your cohort.
+          </p>
+        </div>
+      </div>
+      <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        {miniHackItems.map((r) => (
+          <a
+            key={r.href}
+            href={r.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group rounded-2xl bg-gradient-card border-hairline p-5 hover:border-brand-red/40 transition-all hover:-translate-y-0.5"
+          >
+            <div className="flex items-start justify-between mb-4">
+              <div className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-brand text-primary-foreground">
+                <r.icon className="h-4 w-4" />
+              </div>
+              <ArrowUpRight className="h-4 w-4 text-muted-foreground group-hover:text-foreground group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+            </div>
+            <div className="text-[9px] font-mono uppercase tracking-[0.18em] text-brand-red mb-1">{r.label}</div>
+            <div className="font-display font-semibold tracking-tight">{r.title}</div>
+            <p className="text-xs text-muted-foreground mt-1.5 leading-relaxed">{r.description}</p>
+          </a>
+        ))}
+      </div>
+    </section>
 
     <div className="space-y-12">
       {groups.map((g) => (
