@@ -12,6 +12,7 @@ import Events from "./pages/Events";
 import Resources from "./pages/Resources";
 import Apply from "./pages/Apply";
 import Success from "./pages/Success";
+import GetStarted from "./pages/GetStarted";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -32,6 +33,7 @@ const App = () => (
             <Route path="/resources" element={<Resources />} />
             <Route path="/apply" element={<Apply />} />
             <Route path="/success" element={<Success />} />
+            <Route path="/get-started" element={<GetStarted />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>
