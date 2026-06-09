@@ -134,7 +134,7 @@ const Resources = () => (
     />
 
     {/* ─── MINI HACK PROGRAMME ─── */}
-    <section className="mb-16">
+    <section className="mb-10 sm:mb-16">
       <div className="flex items-baseline justify-between mb-5">
         <div>
           <div className="text-[10px] font-mono uppercase tracking-[0.2em] text-muted-foreground mb-1">
@@ -169,7 +169,7 @@ const Resources = () => (
       </div>
     </section>
 
-    <div className="space-y-12">
+    <div className="space-y-10 sm:space-y-12">
       {groups.map((g) => (
         <section key={g.label}>
           <div className="flex items-baseline justify-between mb-5">
