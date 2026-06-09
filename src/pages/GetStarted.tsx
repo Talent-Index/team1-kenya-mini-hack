@@ -212,23 +212,23 @@ const GetStarted = () => (
     />
 
     {/* ─── STEP-BY-STEP ─── */}
-    <section className="mb-16">
-      <ol className="space-y-5">
+    <section className="mb-10 sm:mb-16">
+      <ol className="space-y-4 sm:space-y-5">
         {steps.map((step) => (
           <li
             key={step.number}
-            className="rounded-2xl bg-gradient-card border-hairline p-6 md:p-8"
+            className="rounded-2xl bg-gradient-card border-hairline p-4 sm:p-6 md:p-8"
           >
-            <div className="flex gap-5 items-start">
-              <div className="shrink-0 h-11 w-11 rounded-xl bg-gradient-brand flex items-center justify-center font-mono text-sm font-bold text-primary-foreground">
+            <div className="flex gap-3 sm:gap-5 items-start">
+              <div className="shrink-0 h-9 w-9 sm:h-11 sm:w-11 rounded-xl bg-gradient-brand flex items-center justify-center font-mono text-xs sm:text-sm font-bold text-primary-foreground">
                 {step.number}
               </div>
               <div className="flex-1 min-w-0">
-                <h3 className="font-display text-lg font-semibold tracking-tight mb-2">{step.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed mb-4">{step.description}</p>
+                <h3 className="font-display text-base sm:text-lg font-semibold tracking-tight mb-1 sm:mb-2">{step.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-3 sm:mb-4">{step.description}</p>
 
                 {step.code && (
-                  <pre className="rounded-xl bg-surface-2 border border-border/60 p-4 text-xs font-mono text-foreground/80 overflow-x-auto mb-4 leading-relaxed whitespace-pre">
+                  <pre className="rounded-xl bg-surface-2 border border-border/60 p-3 sm:p-4 text-xs font-mono text-foreground/80 overflow-x-auto mb-3 sm:mb-4 leading-relaxed whitespace-pre">
                     {step.code}
                   </pre>
                 )}
@@ -265,16 +265,16 @@ const GetStarted = () => (
     </section>
 
     {/* ─── WEEKLY WORKFLOW ─── */}
-    <section className="mb-16">
-      <h2 className="font-display text-2xl md:text-3xl font-semibold tracking-tight mb-2">
+    <section className="mb-10 sm:mb-16">
+      <h2 className="font-display text-xl sm:text-2xl md:text-3xl font-semibold tracking-tight mb-2">
         Every week, same process.
       </h2>
-      <p className="text-muted-foreground text-sm mb-8">
+      <p className="text-muted-foreground text-sm mb-6 sm:mb-8">
         Eight sessions. Four deliverables. One Demo Day. This is the workflow you follow every week from Week 1 to Week 4.
       </p>
-      <div className="rounded-2xl bg-gradient-card border-hairline p-6 md:p-8 space-y-7">
+      <div className="rounded-2xl bg-gradient-card border-hairline p-4 sm:p-6 md:p-8 space-y-5 sm:space-y-7">
         {workflow.map((item) => (
-          <div key={item.n} className="flex gap-4 items-start">
+          <div key={item.n} className="flex gap-3 sm:gap-4 items-start">
             <span className="shrink-0 h-7 w-7 rounded-full bg-brand-red/20 border border-brand-red/40 flex items-center justify-center text-xs font-mono font-bold text-brand-red">
               {item.n}
             </span>
@@ -304,8 +304,8 @@ const GetStarted = () => (
     </section>
 
     {/* ─── LATE SUBMISSION POLICY ─── */}
-    <section className="mb-16">
-      <div className="rounded-2xl border border-amber-500/40 bg-amber-500/5 p-6 md:p-8">
+    <section className="mb-10 sm:mb-16">
+      <div className="rounded-2xl border border-amber-500/40 bg-amber-500/5 p-4 sm:p-6 md:p-8">
         <div className="flex items-start gap-3 mb-4">
           <AlertTriangle className="h-5 w-5 text-amber-400 shrink-0 mt-0.5" />
           <h3 className="font-display text-lg font-semibold tracking-tight text-amber-300">Submission deadlines</h3>
@@ -351,39 +351,41 @@ const GetStarted = () => (
     </section>
 
     {/* ─── ASSESSMENT RUBRIC ─── */}
-    <section className="mb-16">
-      <h2 className="font-display text-2xl md:text-3xl font-semibold tracking-tight mb-6">
+    <section className="mb-10 sm:mb-16">
+      <h2 className="font-display text-xl sm:text-2xl md:text-3xl font-semibold tracking-tight mb-4 sm:mb-6">
         How your work is graded
       </h2>
 
-      <div className="rounded-2xl bg-gradient-card border-hairline overflow-hidden mb-6">
-        <table className="w-full text-sm">
-          <thead>
-            <tr className="border-b border-border/60 bg-secondary/30">
-              <th className="text-left px-5 py-3 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
-                Criterion
-              </th>
-              <th className="text-left px-5 py-3 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
-                Weight
-              </th>
-              <th className="text-left px-5 py-3 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground hidden sm:table-cell">
-                What reviewers check
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {rubricRows.map((row, i) => (
-              <tr
-                key={row.criterion}
-                className={`border-b border-border/40 ${i === rubricRows.length - 1 ? "border-0" : ""}`}
-              >
-                <td className="px-5 py-3 font-medium">{row.criterion}</td>
-                <td className="px-5 py-3 font-mono text-brand-red font-semibold">{row.weight}</td>
-                <td className="px-5 py-3 text-muted-foreground hidden sm:table-cell">{row.detail}</td>
+      <div className="overflow-x-auto rounded-2xl mb-6">
+        <div className="min-w-[480px] rounded-2xl bg-gradient-card border-hairline overflow-hidden">
+          <table className="w-full text-sm">
+            <thead>
+              <tr className="border-b border-border/60 bg-secondary/30">
+                <th className="text-left px-3 sm:px-5 py-3 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
+                  Criterion
+                </th>
+                <th className="text-left px-3 sm:px-5 py-3 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
+                  Weight
+                </th>
+                <th className="text-left px-3 sm:px-5 py-3 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
+                  What reviewers check
+                </th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {rubricRows.map((row, i) => (
+                <tr
+                  key={row.criterion}
+                  className={`border-b border-border/40 ${i === rubricRows.length - 1 ? "border-0" : ""}`}
+                >
+                  <td className="px-3 sm:px-5 py-3 font-medium">{row.criterion}</td>
+                  <td className="px-3 sm:px-5 py-3 font-mono text-brand-red font-semibold">{row.weight}</td>
+                  <td className="px-3 sm:px-5 py-3 text-muted-foreground">{row.detail}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
 
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
@@ -409,8 +411,8 @@ const GetStarted = () => (
     </section>
 
     {/* ─── GETTING HELP ─── */}
-    <section className="mb-16">
-      <div className="rounded-2xl bg-gradient-card border-hairline p-6 md:p-8">
+    <section className="mb-10 sm:mb-16">
+      <div className="rounded-2xl bg-gradient-card border-hairline p-4 sm:p-6 md:p-8">
         <div className="flex items-start gap-3 mb-4">
           <Send className="h-5 w-5 text-[#229ED9] shrink-0 mt-0.5" />
           <h3 className="font-display text-lg font-semibold tracking-tight">Stuck? Here is how to get help.</h3>
@@ -470,8 +472,8 @@ const GetStarted = () => (
     </section>
 
     {/* ─── USEFUL LINKS ─── */}
-    <section className="mb-16">
-      <h2 className="font-display text-2xl md:text-3xl font-semibold tracking-tight mb-6">
+    <section className="mb-10 sm:mb-16">
+      <h2 className="font-display text-xl sm:text-2xl md:text-3xl font-semibold tracking-tight mb-4 sm:mb-6">
         Everything in one place
       </h2>
       <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
