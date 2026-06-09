@@ -53,7 +53,7 @@ const channels = [
 ];
 
 export const CommunitySection = () => (
-  <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+  <div className="grid gap-3 sm:gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5">
     {channels.map((c) => (
       <a
         key={c.label}
@@ -62,7 +62,7 @@ export const CommunitySection = () => (
         rel="noopener noreferrer"
         aria-label={`Join ${c.label}`}
         onClick={() => trackEvent("community_click", { channel: c.label })}
-        className={`group relative overflow-hidden rounded-2xl bg-gradient-card p-6 hover:-translate-y-0.5 transition-all ${
+        className={`group relative overflow-hidden rounded-2xl bg-gradient-card p-4 sm:p-6 hover:-translate-y-0.5 transition-all ${
           c.primary
             ? "border border-brand-red/60 ring-1 ring-brand-red/30"
             : "border-hairline hover:border-brand-red/40"
