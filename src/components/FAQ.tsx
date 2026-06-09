@@ -7,7 +7,7 @@ import {
 
 const faqs = [
   {
-    q: "What is the Team1 Kenya Mini Hack?",
+    q: "What is the Team1 Kenya Mini-Hack?",
     a: "A 3-month builder program (June–August 2026) where Kenyan developers, founders, and teams build real products on Avalanche. Each month focuses on a specific track: Payments, Gamification, and Agentic Systems — culminating in a hackathon on August 28.",
   },
   {
