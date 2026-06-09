@@ -2,19 +2,10 @@ import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { Calendar, Sparkles } from "lucide-react";
 import { useRef } from "react";
 import poster from "@/assets/minihack-poster.png";
-import { Typewriter } from "@/components/Typewriter";
 import { ApplyButton } from "@/components/ApplyButton";
 import { Button } from "@/components/ui/button";
 import { trackEvent } from "@/lib/analytics";
 import { LUMA_URL } from "@/components/ApplyButton";
-
-const phrases = [
-  "Turning Builders into Founders.",
-  "Build the Future on Avalanche.",
-  "Ship Real Products.",
-  "Payments. Gaming. AI.",
-  "The Agentic Era Starts Here.",
-];
 
 export const HeroMiniHack = () => {
   const ref = useRef<HTMLDivElement>(null);
@@ -50,13 +41,14 @@ export const HeroMiniHack = () => {
               Team1 Kenya · Mini Hack 2026
             </span>
 
-            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.02] text-balance">
-              <Typewriter phrases={phrases} />
+            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.02]">
+              <span className="text-brand-red">Ship</span>{" "}
+              <span className="bg-gradient-to-r from-brand-orange via-brand-red to-brand-purple bg-clip-text text-transparent">Real</span>{" "}
+              <span className="text-white">Products</span>
             </h1>
 
             <p className="mt-6 text-base md:text-lg text-muted-foreground max-w-xl leading-relaxed">
-              A 3-month builder accelerator for Kenyan engineers, founders, and teams shipping real
-              products on Avalanche. Payments → Gamification → Agentic Systems → Hackathon.
+              A three-cohort builder programme for Kenyan developers shipping real products on Avalanche. Payments. Gaming. Agentic AI.
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-3">
