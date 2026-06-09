@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Rocket, Globe, GraduationCap, Layers, Github } from "lucide-react";
+import { Rocket, Globe, GraduationCap, Clock, BookOpen, Award, Mic } from "lucide-react";
 import { SectionHeader } from "@/components/SectionHeader";
 import { MetricCard } from "@/components/MetricCard";
 import { CurriculumTracks } from "@/components/CurriculumTracks";
@@ -24,10 +24,10 @@ const Index = () => {
       {/* ─── METRICS ─── */}
       <section className="container -mt-4 md:-mt-8 pb-8 md:pb-12">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-          <MetricCard label="Projects Indexed" value={totalProjects || "…"} icon={Layers} accent="red" />
-          <MetricCard label="Monthly Tracks" value={3} icon={Rocket} accent="orange" />
-          <MetricCard label="Cohort Window" value="Jun–Aug" icon={GraduationCap} accent="purple" />
-          <MetricCard label="Source" value="GitHub" icon={Github} accent="blue" />
+          <MetricCard label="SESSIONS PER WEEK" value="2x" delta="Tue and Thu 8PM EAT" icon={Clock} accent="red" />
+          <MetricCard label="WEEKS PER COHORT" value={4} delta="Project-based learning" icon={BookOpen} accent="orange" />
+          <MetricCard label="CERTIFICATION" value="On-chain" delta="Avalanche Builders Hub" icon={Award} accent="purple" />
+          <MetricCard label="DEMO DAY" value="Monthly" delta="Builders Connect IRL" icon={Mic} accent="blue" />
         </div>
       </section>
 
