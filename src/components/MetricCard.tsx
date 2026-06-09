@@ -16,15 +16,15 @@ const accents = {
 };
 
 export const MetricCard = ({ label, value, icon: Icon, delta, accent = "red" }: Props) => (
-  <div className="relative rounded-2xl bg-gradient-card border-hairline p-5 overflow-hidden">
+  <div className="relative rounded-2xl bg-gradient-card border-hairline p-4 sm:p-5 overflow-hidden">
     <div className={`absolute -top-12 -right-12 h-32 w-32 rounded-full bg-gradient-to-br ${accents[accent]} blur-2xl opacity-50`} />
     <div className="relative">
-      <div className="flex items-center justify-between">
-        <span className="text-xs uppercase tracking-widest text-muted-foreground">{label}</span>
-        {Icon && <Icon className={`h-4 w-4 ${accents[accent].split(" ").pop()}`} />}
+      <div className="flex items-start justify-between gap-2">
+        <span className="text-[10px] sm:text-xs uppercase tracking-wider sm:tracking-widest text-muted-foreground leading-tight">{label}</span>
+        {Icon && <Icon className={`h-4 w-4 shrink-0 mt-0.5 ${accents[accent].split(" ").pop()}`} />}
       </div>
-      <div className="mt-3 font-display text-3xl font-semibold tracking-tight">{value}</div>
-      {delta && <div className="text-xs text-muted-foreground mt-1">{delta}</div>}
+      <div className="mt-2 sm:mt-3 font-display text-2xl sm:text-3xl font-semibold tracking-tight">{value}</div>
+      {delta && <div className="text-[11px] sm:text-xs text-muted-foreground mt-1 leading-snug">{delta}</div>}
     </div>
   </div>
 );
