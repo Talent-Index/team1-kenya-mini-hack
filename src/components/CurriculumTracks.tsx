@@ -153,7 +153,7 @@ export const CurriculumTracks = () => {
                 setOpenWeek("Week 1");
               }}
               className={cn(
-                "flex-1 group relative px-5 py-5 text-left transition-colors",
+                "flex-1 group relative px-4 sm:px-5 py-3 sm:py-5 text-left transition-colors",
                 isActive ? "bg-secondary/40" : "hover:bg-secondary/20",
               )}
             >
@@ -185,7 +185,7 @@ export const CurriculumTracks = () => {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -8 }}
           transition={{ duration: 0.35 }}
-          className="p-6 md:p-8"
+          className="p-4 sm:p-6 md:p-8"
         >
           <div className="mb-6">
             <div className="text-[10px] font-mono uppercase tracking-[0.22em] text-brand-red mb-2">
@@ -208,7 +208,7 @@ export const CurriculumTracks = () => {
                 >
                   <button
                     onClick={() => setOpenWeek(open ? null : m.week)}
-                    className="w-full flex items-center gap-4 p-4 text-left"
+                    className="w-full flex items-center gap-3 sm:gap-4 p-3 sm:p-4 text-left"
                   >
                     <div
                       className={cn(
@@ -233,7 +233,7 @@ export const CurriculumTracks = () => {
                         transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
                         className="overflow-hidden"
                       >
-                        <div className="px-4 pb-5 pt-1 grid sm:grid-cols-2 gap-5">
+                        <div className="px-3 sm:px-4 pb-4 sm:pb-5 pt-1 grid sm:grid-cols-2 gap-4 sm:gap-5">
                           <div>
                             <div className="flex items-center gap-2 mb-2 text-[10px] font-mono uppercase tracking-[0.2em] text-muted-foreground">
                               <Target className="h-3 w-3" /> Learning outcomes
