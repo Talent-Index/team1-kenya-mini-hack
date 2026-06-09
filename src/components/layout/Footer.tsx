@@ -1,12 +1,14 @@
 import { Link } from "react-router-dom";
-import { Send, MessageCircle, Twitter, Hash, Github } from "lucide-react";
+import { Send, MessageCircle, Twitter, Github } from "lucide-react";
 import logo from "@/assets/team1-logo.png";
 
+// TODO: Replace WHATSAPP_HREF with the real WhatsApp group link when available
+const WHATSAPP_HREF = "#TODO-whatsapp-group-link";
+
 const socials = [
-  { label: "Telegram", href: "https://t.me/avaxDAOAfrica", icon: Send },
-  { label: "WhatsApp", href: "https://chat.whatsapp.com/DIxi7F6uv8B7FhMr0soThA?mode=gi_t", icon: MessageCircle },
+  { label: "Telegram", href: "https://t.me/avaxDAOAfrica/3", icon: Send },
+  { label: "WhatsApp", href: WHATSAPP_HREF, icon: MessageCircle },
   { label: "X (Twitter)", href: "https://x.com/avaxafrica?s=21", icon: Twitter },
-  { label: "Discord", href: "https://discord.gg/team1", icon: Hash },
   { label: "GitHub", href: "https://github.com/Talent-Index", icon: Github },
 ];
 
