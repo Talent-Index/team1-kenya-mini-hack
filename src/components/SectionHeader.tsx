@@ -11,13 +11,13 @@ interface Props {
 }
 
 export const SectionHeader = ({ eyebrow, title, description, href, hrefLabel = "View all", align = "left" }: Props) => (
-  <div className={`flex flex-col gap-2 mb-8 ${align === "center" ? "text-center items-center" : "md:flex-row md:items-end md:justify-between"}`}>
+  <div className={`flex flex-col gap-2 mb-6 sm:mb-8 ${align === "center" ? "text-center items-center" : "md:flex-row md:items-end md:justify-between"}`}>
     <div className={align === "center" ? "max-w-2xl" : ""}>
       {eyebrow && (
         <span className="inline-block text-xs uppercase tracking-[0.18em] text-muted-foreground mb-3">{eyebrow}</span>
       )}
-      <h2 className="font-display text-3xl md:text-4xl font-semibold tracking-tight">{title}</h2>
-      {description && <p className="mt-2 text-muted-foreground max-w-2xl">{description}</p>}
+      <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight">{title}</h2>
+      {description && <p className="mt-2 text-sm sm:text-base text-muted-foreground max-w-2xl">{description}</p>}
     </div>
     {href && (
       <Link
