@@ -3,6 +3,13 @@ import { useQuery, useQueryClient } from "@tanstack/react-query";
 const ORG = "Talent-Index";
 const API = "https://api.github.com";
 
+const EXCLUDED_REPOS = new Set([
+  "minihack-cohort1-template",
+  "minihack-cohort2-template",
+  "minihack-cohort3-template",
+  ".github",
+]);
+
 export interface GitHubRepo {
   id: number;
   name: string;
@@ -83,7 +90,7 @@ function transformRepo(repo: GitHubRepo): EcosystemProject {
     id: repo.id,
     name: repo.name,
     displayName: toDisplayName(repo.name),
-    description: repo.description || `A project built on Avalanche by Talent-Index Kenya.`,
+    description: repo.description || "",
     category: categorize(repo),
     language: repo.language || "Unknown",
     stars: repo.stargazers_count,
@@ -110,7 +117,7 @@ async function fetchAllRepos(): Promise<EcosystemProject[]> {
   }
 
   return allRepos
-    .filter((r) => !r.fork && !r.archived)
+    .filter((r) => !r.fork && !r.archived && !EXCLUDED_REPOS.has(r.name))
     .map(transformRepo)
     .sort((a, b) => new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime());
 }
