@@ -2,10 +2,19 @@ import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { Calendar, Sparkles } from "lucide-react";
 import { useRef } from "react";
 import poster from "@/assets/minihack-poster.png";
+import { Typewriter } from "@/components/Typewriter";
 import { ApplyButton } from "@/components/ApplyButton";
 import { Button } from "@/components/ui/button";
 import { trackEvent } from "@/lib/analytics";
 import { LUMA_URL } from "@/components/ApplyButton";
+
+const phrases = [
+  "Turning Builders into Founders.",
+  "Build the Future on Avalanche.",
+  "Ship Real Products.",
+  "Payments. Gaming. AI.",
+  "The Agentic Era Starts Here.",
+];
 
 export const HeroMiniHack = () => {
   const ref = useRef<HTMLDivElement>(null);
@@ -28,30 +37,29 @@ export const HeroMiniHack = () => {
       <div className="pointer-events-none absolute -top-40 left-1/2 h-[600px] w-[900px] -translate-x-1/2 rounded-full bg-brand-red/20 blur-[120px]" />
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-background/70 to-background" />
 
-      <div className="container relative pt-20 md:pt-28 pb-16 md:pb-24">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <div className="container relative pt-16 sm:pt-20 md:pt-28 pb-12 sm:pb-16 md:pb-24">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
           {/* LEFT */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           >
-            <span className="inline-flex items-center gap-2 rounded-full glass border border-brand-red/30 px-3 py-1 text-[10px] font-mono uppercase tracking-[0.22em] text-foreground/80 mb-6">
+            <span className="inline-flex items-center gap-2 rounded-full glass border border-brand-red/30 px-3 py-1 text-[10px] font-mono uppercase tracking-[0.22em] text-foreground/80 mb-5 sm:mb-6">
               <span className="h-1.5 w-1.5 rounded-full bg-brand-red animate-pulse" />
               Team1 Kenya · Mini Hack 2026
             </span>
 
-            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.02]">
-              <span className="text-brand-red">Ship</span>{" "}
-              <span className="bg-gradient-to-r from-brand-orange via-brand-red to-brand-purple bg-clip-text text-transparent">Real</span>{" "}
-              <span className="text-white">Products</span>
+            {/* min-h prevents layout shift as phrases change length */}
+            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.08] sm:leading-[1.02] text-balance min-h-[2.2em] sm:min-h-0">
+              <Typewriter phrases={phrases} />
             </h1>
 
-            <p className="mt-6 text-base md:text-lg text-muted-foreground max-w-xl leading-relaxed">
+            <p className="mt-5 sm:mt-6 text-sm sm:text-base md:text-lg text-muted-foreground max-w-xl leading-relaxed">
               A three-cohort builder programme for Kenyan developers shipping real products on Avalanche. Payments. Gaming. Agentic AI.
             </p>
 
-            <div className="mt-8 flex flex-wrap items-center gap-3">
+            <div className="mt-6 sm:mt-8 flex flex-wrap items-center gap-3">
               <ApplyButton location="hero" label="Apply on Luma" size="lg" />
               <Button
                 asChild
@@ -65,7 +73,7 @@ export const HeroMiniHack = () => {
               </Button>
             </div>
 
-            <div className="mt-8 flex items-center gap-4 text-xs text-muted-foreground">
+            <div className="mt-6 sm:mt-8 flex items-center gap-4 text-xs text-muted-foreground">
               <div className="flex -space-x-2">
                 {[0, 1, 2, 3].map((i) => (
                   <div
@@ -81,7 +89,7 @@ export const HeroMiniHack = () => {
             </div>
           </motion.div>
 
-          {/* RIGHT — Poster */}
+          {/* RIGHT — Poster (hidden on small mobile, shown from sm up) */}
           <motion.div
             ref={ref}
             onMouseMove={handleMove}
@@ -92,15 +100,15 @@ export const HeroMiniHack = () => {
             initial={{ opacity: 0, scale: 0.92 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.9, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            className="relative mx-auto w-full max-w-md lg:max-w-none"
+            className="relative mx-auto w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-none"
             style={{ perspective: 1200 }}
           >
             <motion.div
               style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
               className="relative animate-float"
             >
-              <div className="absolute -inset-6 rounded-[2rem] bg-brand-red/30 blur-3xl opacity-70" />
-              <div className="relative rounded-3xl overflow-hidden border border-brand-red/30 glow-ring-red bg-black">
+              <div className="absolute -inset-4 sm:-inset-6 rounded-[2rem] bg-brand-red/30 blur-3xl opacity-70" />
+              <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden border border-brand-red/30 glow-ring-red bg-black">
                 <img
                   src={poster}
                   alt="Team1 Kenya Mini Hack 2026 — official poster"
@@ -108,7 +116,7 @@ export const HeroMiniHack = () => {
                   loading="eager"
                 />
               </div>
-              <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 rounded-full glass border border-brand-red/40 px-4 py-1.5 text-[10px] font-mono uppercase tracking-[0.22em] text-foreground">
+              <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 rounded-full glass border border-brand-red/40 px-3 sm:px-4 py-1 sm:py-1.5 text-[9px] sm:text-[10px] font-mono uppercase tracking-[0.18em] sm:tracking-[0.22em] text-foreground whitespace-nowrap">
                 June – August 2026 · Nairobi
               </div>
             </motion.div>
