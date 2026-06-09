@@ -28,7 +28,7 @@ export const FloatingAskAIButton = () => {
             Team1 AI · Ecosystem Intelligence
           </DialogTitle>
           <DialogDescription>
-            Ask anything about Kenyan Avalanche builders, projects, or tracks. (Connect Lovable AI to enable live answers.)
+            Ask anything about Kenyan Avalanche builders, projects, or tracks.
           </DialogDescription>
         </DialogHeader>
         <div className="rounded-lg bg-surface-2 border-hairline p-4 text-sm text-muted-foreground">
