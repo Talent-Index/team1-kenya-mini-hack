@@ -11,6 +11,7 @@ const links = [
   { to: "/projects", label: "Projects" },
   { to: "/events", label: "Events" },
   { to: "/resources", label: "Resources" },
+  { to: "/get-started", label: "Get Started" },
 ];
 
 export const Navbar = () => {
