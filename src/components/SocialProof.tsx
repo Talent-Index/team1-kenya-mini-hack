@@ -4,7 +4,7 @@ import { Star } from "lucide-react";
 const testimonials = [
   {
     name: "Wanjiru Kamau",
-    role: "Full-stack Engineer, PlugPlay Arena",
+    role: "Full-stack Engineer, QuestArena",
     quote: "Team1 Kenya gave me visibility that turned into a grant. Within weeks of being listed, I was connected to the Avalanche grants committee.",
     avatar: "https://i.pravatar.cc/80?img=47",
   },
