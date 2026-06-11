@@ -8,7 +8,7 @@ import { SectionHeader } from "@/components/SectionHeader";
 const GUIDE_URL =
   "https://github.com/Talent-Index/minihack-cohort1-template/blob/main/CONTRIBUTING_GUIDE.md";
 const TRACKER_URL = "https://minihacktracker.vercel.app";
-const TALLY_URL = "https://tally.so/r/rjv4Zo";
+const TALLY_URL = "https://tally.so/r/Y5qG65";
 const TELEGRAM_URL = "https://t.me/avaxDAOAfrica/3";
 const TEMPLATE_URL = "https://github.com/Talent-Index/minihack-cohort1-template";
 const GITHUB_ORG_URL = "https://github.com/Talent-Index";
