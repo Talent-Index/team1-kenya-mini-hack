@@ -64,7 +64,7 @@ const SubmitProject = () => {
     <div className="container py-12 md:py-16 max-w-3xl">
       <SectionHeader eyebrow="Submit" title="Submit your project" description="Get listed in the Avalanche Team1 Kenya Talent Index." />
       <form onSubmit={onSubmit} className="rounded-3xl bg-gradient-card border-hairline p-6 md:p-8 space-y-6">
-        <Field label="Project name *" name="name" placeholder="e.g. PlugPlay Arena" />
+        <Field label="Project name *" name="name" placeholder="e.g. Exion Pay" />
         <Field label="One-line description *" name="tagline" placeholder="What does it do, in one line?" />
         <Field label="Full description *" name="description" type="textarea" placeholder="Problem, solution, traction, what's next..." />
         <div className="grid gap-4 md:grid-cols-2">
