@@ -2,12 +2,9 @@ import { Link } from "react-router-dom";
 import { Send, MessageCircle, Twitter, Github } from "lucide-react";
 import logo from "@/assets/team1-logo.png";
 
-// TODO: Replace WHATSAPP_HREF with the real WhatsApp group link when available
-const WHATSAPP_HREF = "#TODO-whatsapp-group-link";
-
 const socials = [
   { label: "Telegram", href: "https://t.me/avaxDAOAfrica/3", icon: Send },
-  { label: "WhatsApp", href: WHATSAPP_HREF, icon: MessageCircle },
+  { label: "WhatsApp", href: "https://chat.whatsapp.com/JEOKw9yjlKcGbbdRlC5d12", icon: MessageCircle },
   { label: "X (Twitter)", href: "https://x.com/avaxafrica?s=21", icon: Twitter },
   { label: "GitHub", href: "https://github.com/Talent-Index", icon: Github },
 ];
@@ -54,6 +51,7 @@ export const Footer = () => (
         <ul className="space-y-2 text-sm">
           <li><a href="https://luma.com/Team1Africa" target="_blank" rel="noopener noreferrer" className="hover:text-foreground text-muted-foreground">Apply on Luma</a></li>
           <li><a href="https://luma.com/Team1Africa" target="_blank" rel="noopener noreferrer" className="hover:text-foreground text-muted-foreground">RSVP Events</a></li>
+          <li><a href="https://minihacktracker.vercel.app" target="_blank" rel="noopener noreferrer" className="hover:text-foreground text-muted-foreground">Quest Tracker</a></li>
           <li><a href="https://github.com/Talent-Index" target="_blank" rel="noopener noreferrer" className="hover:text-foreground text-muted-foreground">GitHub Org</a></li>
           <li><a href="https://build.avax.network/academy" target="_blank" rel="noopener noreferrer" className="hover:text-foreground text-muted-foreground">Avalanche Academy</a></li>
         </ul>
@@ -62,6 +60,9 @@ export const Footer = () => (
         <h4 className="text-xs uppercase tracking-widest text-muted-foreground mb-3">Ecosystem</h4>
         <p className="text-sm text-muted-foreground">Powered by Avalanche · Built in Nairobi</p>
         <p className="text-sm text-muted-foreground mt-1">June – August 2026</p>
+        <p className="text-sm text-muted-foreground mt-1">
+          <a href="https://team1kenyaminihack.vercel.app" className="hover:text-foreground">team1kenyaminihack.vercel.app</a>
+        </p>
       </div>
     </div>
     <div className="border-t border-border/60 py-6 text-center text-xs text-muted-foreground">
