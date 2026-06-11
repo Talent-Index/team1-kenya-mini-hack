@@ -75,7 +75,18 @@ const groups: Group[] = [
   },
 ];
 
+const GUIDE_URL =
+  "https://github.com/Talent-Index/minihack-cohort1-template/blob/main/CONTRIBUTING_GUIDE.md";
+
 const miniHackItems = [
+  {
+    label: "BUILDER GUIDE",
+    title: "Contribution and submission guide",
+    description:
+      "Step by step: how to set up, how to submit each week, how to open a PR, quest breakdowns with points, grading rubric, and late policy. Everything in one place.",
+    href: GUIDE_URL,
+    icon: BookOpen,
+  },
   {
     label: "COHORT 1 — PAYMENTS",
     title: "Payments Template Repo",
