@@ -115,7 +115,7 @@ export const quests: Quest[] = [
     points: 20,
     title: "Scaffold Your Foundry Payments Project",
     description: "Set up a complete Foundry project for on-chain payments. Initialise forge init, install OpenZeppelin, configure foundry.toml for Fuji, and confirm forge build passes.",
-    tallyUrl: "https://tally.so/r/rjv4Zo",
+    tallyUrl: "https://tally.so/r/Y5qG65",
     status: "Active",
   },
   {
@@ -125,7 +125,7 @@ export const quests: Quest[] = [
     points: 25,
     title: "Write the PaymentSplitter Contract",
     description: "Implement a Solidity PaymentSplitter that accepts an ERC-20 token and splits a payment between two recipients. Import from OpenZeppelin. Emit an event on every split. forge build must pass with zero errors.",
-    tallyUrl: "https://tally.so/r/rjv4Zo",
+    tallyUrl: "https://tally.so/r/Y5qG65",
     status: "Active",
   },
   {
@@ -135,7 +135,7 @@ export const quests: Quest[] = [
     points: 25,
     title: "Deploy to Fuji and Verify On-Chain",
     description: "Deploy PaymentSplitter and Escrow contracts to Fuji C-Chain using forge script and the Avalanche CLI key. Confirm deployment on Snowtrace. Share forge script broadcast output and Snowtrace contract links.",
-    tallyUrl: "https://tally.so/r/rjv4Zo",
+    tallyUrl: "https://tally.so/r/Y5qG65",
     status: "Active",
   },
   {
@@ -145,7 +145,7 @@ export const quests: Quest[] = [
     points: 20,
     title: "Execute a Live Split Payment with Cast",
     description: "Interact with your deployed PaymentSplitter using cast send. Approve the mUSDC spend, execute a 70/30 split, and confirm both recipient balances changed on-chain using cast call.",
-    tallyUrl: "https://tally.so/r/rjv4Zo",
+    tallyUrl: "https://tally.so/r/Y5qG65",
     status: "Active",
   },
   {
@@ -155,7 +155,7 @@ export const quests: Quest[] = [
     points: 30,
     title: "Avalanche Academy — Smart Contracts Certification",
     description: "Complete the Smart Contracts on Avalanche course on Avalanche Academy. Download your certificate PDF and upload it via Tally. This certification counts toward your certified builder status reported to the Avalanche Foundation.",
-    tallyUrl: "https://tally.so/r/rjv4Zo",
+    tallyUrl: "https://tally.so/r/Y5qG65",
     academyUrl: "https://academy.avax.network",
     status: "Active",
   },
