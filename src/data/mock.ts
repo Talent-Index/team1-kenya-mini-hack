@@ -1,5 +1,5 @@
 import { Builder, Project, Submission, Track } from "@/types";
-import plugplay from "@/assets/project-plugplay.jpg";
+import questArena from "@/assets/project-plugplay.jpg";
 import core from "@/assets/project-core.jpg";
 import campus from "@/assets/project-campus.jpg";
 import exion from "@/assets/project-exion.jpg";
@@ -30,7 +30,7 @@ export const STAGES = [
   "Scaling",
 ] as const;
 
-const img = [plugplay, core, campus, exion, grants, ai];
+const img = [questArena, core, campus, exion, grants, ai];
 
 export const builders: Builder[] = [
   { id: "b1", name: "Wanjiru Kamau", role: "Full-stack Engineer", bio: "Building consumer-grade web3 onboarding experiences for African users.", skills: ["React", "Solidity", "Avalanche", "Node"], location: "Nairobi", avatarUrl: "https://i.pravatar.cc/200?img=47", githubUrl: "#", xUrl: "#", linkedinUrl: "#", projects: ["p1"], openToCollaborate: true, badges: ["Hackathon Winner", "Demo Day Ready"], createdAt: "2025-01-12" },
@@ -73,7 +73,7 @@ const mk = (i: number, p: Partial<Project>): Project => ({
 });
 
 export const projects: Project[] = [
-  mk(0, { id: "p1", name: "PlugPlay Arena", slug: "plugplay-arena", tagline: "Gamified Avalanche onboarding & missions platform", description: "PlugPlay turns onboarding into a quest. Users complete missions across the Avalanche ecosystem to earn XP, NFT badges, and unlock real rewards from partner protocols.", track: "Gaming & Onboarding", stage: "Testnet", teamName: "PlugPlay Labs", builderIds: ["b1"], imageUrl: plugplay, lastShipped: "2025-04-22", shippingUpdate: "Launched Quest v2 with 14 partner missions", lookingForFunding: true, grantReady: true, demoDayReady: true, visibilityScore: 92, featured: true, hackathonProject: true, githubUrl: "#", demoUrl: "#", xUrl: "#" }),
+  mk(0, { id: "p1", name: "QuestArena", slug: "questarena", tagline: "Gamified Avalanche onboarding & missions platform", description: "QuestArena turns onboarding into a quest. Users complete missions across the Avalanche ecosystem to earn XP, NFT badges, and unlock real rewards from partner protocols.", track: "Gaming & Onboarding", stage: "Testnet", teamName: "QuestArena Labs", builderIds: ["b1"], imageUrl: questArena, lastShipped: "2025-04-22", shippingUpdate: "Launched Quest v2 with 14 partner missions", lookingForFunding: true, grantReady: true, demoDayReady: true, visibilityScore: 92, featured: true, hackathonProject: true, githubUrl: "#", demoUrl: "#", xUrl: "#" }),
   mk(1, { id: "p2", name: "Core Rewards Quest", slug: "core-rewards-quest", tagline: "Wallet-based rewards onboarding for Core users", description: "A loyalty layer that rewards users for first-time wallet actions like swaps, bridges, and staking — built specifically for the Core wallet experience.", track: "Wallet & Identity", stage: "MVP", teamName: "Otieno Studios", builderIds: ["b2"], imageUrl: core, lastShipped: "2025-04-18", shippingUpdate: "Integrated 3 new dApps for reward tracking", grantReady: true, visibilityScore: 84, featured: true, githubUrl: "#", demoUrl: "#" }),
   mk(2, { id: "p3", name: "Avalanche Campus Connect", slug: "campus-connect", tagline: "Campus builder activation system across Kenya", description: "A platform that helps universities run Avalanche developer programs — clubs, hackathons, leaderboards, and ambassador tracking.", track: "Community Infrastructure", stage: "Traction", teamName: "Campus Connect", builderIds: ["b3", "b7"], imageUrl: campus, lastShipped: "2025-04-19", shippingUpdate: "Onboarded 7 new universities", lookingForCollaborators: true, demoDayReady: true, visibilityScore: 88, featured: true, githubUrl: "#", websiteUrl: "#" }),
   mk(3, { id: "p4", name: "Exion Pay Demo", slug: "exion-pay", tagline: "Real-world stablecoin payments for African merchants", description: "Bridges M-Pesa with Avalanche stablecoins so merchants can settle in USDC instantly while customers pay in KES.", track: "Payments & Stablecoins", stage: "MVP", teamName: "Exion", builderIds: ["b4"], imageUrl: exion, lastShipped: "2025-04-15", shippingUpdate: "Pilot with 12 Nairobi merchants", lookingForFunding: true, grantReady: true, visibilityScore: 81, featured: true, demoUrl: "#" }),
@@ -93,6 +93,72 @@ export const submissions: Submission[] = [
   { id: "s3", projectName: "ChamaDAO", submitterName: "Peter Odhiambo", email: "peter@example.com", description: "DAO tooling for Kenyan investment groups.", status: "approved", stage: "MVP", visibilityScore: 78, grantReadinessScore: 70, createdAt: "2025-04-19" },
   { id: "s4", projectName: "EduChain", submitterName: "Lucy Wambui", email: "lucy@example.com", description: "Verifiable academic credentials.", status: "featured", stage: "Traction", visibilityScore: 88, grantReadinessScore: 82, createdAt: "2025-04-15" },
   { id: "s5", projectName: "GreenLoop", submitterName: "Eric Kimani", email: "eric@example.com", description: "Carbon credits marketplace.", status: "rejected", adminNotes: "Out of scope for current cohort.", createdAt: "2025-04-10" },
+];
+
+export interface Quest {
+  id: string;
+  week: number;
+  cohort: "Payments" | "Gaming" | "Agentic AI";
+  points: number;
+  title: string;
+  description: string;
+  tallyUrl: string;
+  status: "Active" | "Upcoming" | "Closed";
+  academyUrl?: string;
+}
+
+export const quests: Quest[] = [
+  {
+    id: "q2-1",
+    week: 2,
+    cohort: "Payments",
+    points: 20,
+    title: "Scaffold Your Foundry Payments Project",
+    description: "Set up a complete Foundry project for on-chain payments. Initialise forge init, install OpenZeppelin, configure foundry.toml for Fuji, and confirm forge build passes.",
+    tallyUrl: "https://tally.so/r/rjv4Zo",
+    status: "Active",
+  },
+  {
+    id: "q2-2",
+    week: 2,
+    cohort: "Payments",
+    points: 25,
+    title: "Write the PaymentSplitter Contract",
+    description: "Implement a Solidity PaymentSplitter that accepts an ERC-20 token and splits a payment between two recipients. Import from OpenZeppelin. Emit an event on every split. forge build must pass with zero errors.",
+    tallyUrl: "https://tally.so/r/rjv4Zo",
+    status: "Active",
+  },
+  {
+    id: "q2-3",
+    week: 2,
+    cohort: "Payments",
+    points: 25,
+    title: "Deploy to Fuji and Verify On-Chain",
+    description: "Deploy PaymentSplitter and Escrow contracts to Fuji C-Chain using forge script and the Avalanche CLI key. Confirm deployment on Snowtrace. Share forge script broadcast output and Snowtrace contract links.",
+    tallyUrl: "https://tally.so/r/rjv4Zo",
+    status: "Active",
+  },
+  {
+    id: "q2-4",
+    week: 2,
+    cohort: "Payments",
+    points: 20,
+    title: "Execute a Live Split Payment with Cast",
+    description: "Interact with your deployed PaymentSplitter using cast send. Approve the mUSDC spend, execute a 70/30 split, and confirm both recipient balances changed on-chain using cast call.",
+    tallyUrl: "https://tally.so/r/rjv4Zo",
+    status: "Active",
+  },
+  {
+    id: "q2-5",
+    week: 2,
+    cohort: "Payments",
+    points: 30,
+    title: "Avalanche Academy — Smart Contracts Certification",
+    description: "Complete the Smart Contracts on Avalanche course on Avalanche Academy. Download your certificate PDF and upload it via Tally. This certification counts toward your certified builder status reported to the Avalanche Foundation.",
+    tallyUrl: "https://tally.so/r/rjv4Zo",
+    academyUrl: "https://academy.avax.network",
+    status: "Active",
+  },
 ];
 
 export const trackMeta: Record<Track, { icon: string; gradient: string; description: string }> = {
