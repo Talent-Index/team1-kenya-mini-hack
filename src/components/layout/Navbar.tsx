@@ -16,6 +16,7 @@ const links: NavItem[] = [
   { to: "/events", label: "Events" },
   { href: "https://minihacktracker.vercel.app", label: "Leaderboard" },
   { to: "/resources", label: "Resources" },
+  { to: "/guide", label: "Guide" },
   { to: "/get-started", label: "Get Started" },
 ];
 
