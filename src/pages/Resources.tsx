@@ -1,13 +1,14 @@
 import {
   BookOpen, Droplet, Wallet, GraduationCap, HandCoins, Network,
   Boxes, Workflow, Github, FileCode2, Shield, Globe, ArrowUpRight,
-  GitBranch, CheckSquare, BookMarked,
+  GitBranch, CheckSquare, BookMarked, Trophy,
 } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 import { SectionHeader } from "@/components/SectionHeader";
 
 const TALLY_URL = "https://tally.so/r/rjv4Zo";
-const HANDBOOK_URL = "https://futuristic-dog-9aa.notion.site/Avalanche-Team1-Kenya-Mini-Hack-2a61447232f181d182fec1d63817b3bd?source=copy_link";
+const TRACKER_URL = "https://minihacktracker.vercel.app";
+const HANDBOOK_URL = "https://futuristic-dog-9aa.notion.site/Avalanche-Team1-Kenya-Mini-Hack-2a61447232f181d182fec1d63817b3bd";
 
 interface Resource {
   title: string;
@@ -102,6 +103,13 @@ const miniHackItems = [
     description: "Submit weekly quests and upload Avalanche Academy certificates. All cohort deliverables are submitted through Tally.",
     href: TALLY_URL,
     icon: CheckSquare,
+  },
+  {
+    label: "LEADERBOARD",
+    title: "Quest Tracker",
+    description: "Live leaderboard and quest completion status. See where you stand across all Mini Hack builders.",
+    href: TRACKER_URL,
+    icon: Trophy,
   },
   {
     label: "PROGRAMME HANDBOOK",
