@@ -5,14 +5,22 @@ import { Button } from "@/components/ui/button";
 import { ApplyButton, LUMA_URL } from "@/components/ApplyButton";
 import logo from "@/assets/team1-logo.png";
 
-const links = [
+type InternalLink = { to: string; label: string };
+type ExternalLink = { href: string; label: string };
+type NavItem = InternalLink | ExternalLink;
+
+const links: NavItem[] = [
   { to: "/", label: "Home" },
   { to: "/ecosystem", label: "Ecosystem" },
   { to: "/projects", label: "Projects" },
   { to: "/events", label: "Events" },
+  { href: "https://minihacktracker.vercel.app", label: "Leaderboard" },
   { to: "/resources", label: "Resources" },
   { to: "/get-started", label: "Get Started" },
 ];
+
+const navClass = "px-3 py-2 text-sm rounded-md transition-colors text-muted-foreground hover:text-foreground hover:bg-secondary/60";
+const activeClass = "px-3 py-2 text-sm rounded-md transition-colors text-foreground bg-secondary";
 
 export const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -30,20 +38,28 @@ export const Navbar = () => {
         </Link>
 
         <nav className="hidden lg:flex items-center gap-1">
-          {links.map((l) => (
-            <NavLink
-              key={l.to}
-              to={l.to}
-              end={l.to === "/"}
-              className={({ isActive }) =>
-                `px-3 py-2 text-sm rounded-md transition-colors ${
-                  isActive ? "text-foreground bg-secondary" : "text-muted-foreground hover:text-foreground hover:bg-secondary/60"
-                }`
-              }
-            >
-              {l.label}
-            </NavLink>
-          ))}
+          {links.map((l) =>
+            "href" in l ? (
+              <a
+                key={l.href}
+                href={l.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={navClass}
+              >
+                {l.label}
+              </a>
+            ) : (
+              <NavLink
+                key={l.to}
+                to={l.to}
+                end={l.to === "/"}
+                className={({ isActive }) => (isActive ? activeClass : navClass)}
+              >
+                {l.label}
+              </NavLink>
+            )
+          )}
         </nav>
 
         <div className="hidden lg:flex items-center gap-2">
@@ -58,19 +74,32 @@ export const Navbar = () => {
       {open && (
         <div className="lg:hidden border-t border-border/60 bg-background/95">
           <div className="container py-4 flex flex-col gap-1">
-            {links.map((l) => (
-              <NavLink
-                key={l.to}
-                to={l.to}
-                end={l.to === "/"}
-                onClick={() => setOpen(false)}
-                className={({ isActive }) =>
-                  `px-3 py-2 rounded-md text-sm ${isActive ? "bg-secondary text-foreground" : "text-muted-foreground"}`
-                }
-              >
-                {l.label}
-              </NavLink>
-            ))}
+            {links.map((l) =>
+              "href" in l ? (
+                <a
+                  key={l.href}
+                  href={l.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setOpen(false)}
+                  className="px-3 py-2 rounded-md text-sm text-muted-foreground"
+                >
+                  {l.label}
+                </a>
+              ) : (
+                <NavLink
+                  key={l.to}
+                  to={l.to}
+                  end={l.to === "/"}
+                  onClick={() => setOpen(false)}
+                  className={({ isActive }) =>
+                    `px-3 py-2 rounded-md text-sm ${isActive ? "bg-secondary text-foreground" : "text-muted-foreground"}`
+                  }
+                >
+                  {l.label}
+                </NavLink>
+              )
+            )}
             <Button asChild variant="brand" className="mt-2 animate-pulse-red">
               <a href={LUMA_URL} target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}>
                 Apply on Luma
@@ -82,4 +111,3 @@ export const Navbar = () => {
     </header>
   );
 };
-
