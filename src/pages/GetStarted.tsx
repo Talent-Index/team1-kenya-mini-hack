@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet-async";
-import { ExternalLink, Send, AlertTriangle, BookOpen } from "lucide-react";
+import { ExternalLink, Send, AlertTriangle, BookOpen, Trophy, GitMerge } from "lucide-react";
 import { SectionHeader } from "@/components/SectionHeader";
 import { ApplyButton, LUMA_URL } from "@/components/ApplyButton";
 import { Button } from "@/components/ui/button";
@@ -8,9 +8,9 @@ import { Link } from "react-router-dom";
 const TELEGRAM_URL = "https://t.me/avaxDAOAfrica/3";
 const TALLY_URL = "https://tally.so/r/rjv4Zo";
 const HANDBOOK_URL =
-  "https://futuristic-dog-9aa.notion.site/Avalanche-Team1-Kenya-Mini-Hack-2a61447232f181d182fec1d63817b3bd?source=copy_link";
-// TODO: Replace WHATSAPP_URL with the real WhatsApp group link when available
-const WHATSAPP_URL = "#TODO-whatsapp-group-link";
+  "https://futuristic-dog-9aa.notion.site/Avalanche-Team1-Kenya-Mini-Hack-2a61447232f181d182fec1d63817b3bd";
+const WHATSAPP_URL = "https://chat.whatsapp.com/JEOKw9yjlKcGbbdRlC5d12";
+const TRACKER_URL = "https://minihacktracker.vercel.app";
 
 // ─── STEP DATA ──────────────────────────────────────────────────────────────
 
@@ -79,7 +79,7 @@ npx hardhat compile`,
       "Telegram is the primary programme channel. Session links, quest announcements, submission reminders, and community help are all posted there. WhatsApp is used for secondary coordination.",
     cta: [
       { label: "Join Telegram", href: TELEGRAM_URL },
-      { label: "Join WhatsApp (link coming soon)", href: WHATSAPP_URL, todo: true },
+      { label: "Join WhatsApp", href: WHATSAPP_URL },
     ],
     code: null,
     note: null,
@@ -181,6 +181,7 @@ const usefulLinks = [
   { label: "Fuji Faucet", href: "https://core.app/tools/testnet-faucet" },
   { label: "Fuji Explorer (Snowtrace)", href: "https://testnet.snowtrace.io" },
   { label: "Tally (Quests)", href: TALLY_URL },
+  { label: "Quest Tracker / Leaderboard", href: TRACKER_URL },
   { label: "Programme Handbook", href: HANDBOOK_URL },
   { label: "Cohort 1 Template", href: "https://github.com/Talent-Index/minihack-cohort1-template" },
   { label: "Cohort 2 Template", href: "https://github.com/Talent-Index/minihack-cohort2-template" },
@@ -300,6 +301,137 @@ const GetStarted = () => (
             </div>
           </div>
         ))}
+      </div>
+    </section>
+
+    {/* ─── WEEK 2 QUESTS ─── */}
+    <section className="mb-10 sm:mb-16">
+      <div className="flex items-center gap-3 mb-6">
+        <div className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-brand shadow-glow shrink-0">
+          <Trophy className="h-4 w-4 text-primary-foreground" />
+        </div>
+        <div>
+          <h2 className="font-display text-xl sm:text-2xl font-semibold tracking-tight">Week 2 Quests — Payments Cohort</h2>
+          <p className="text-sm text-muted-foreground mt-0.5">Submit all quests via Tally before Sunday midnight EAT.</p>
+        </div>
+      </div>
+      <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        {[
+          {
+            id: "Q1",
+            points: 20,
+            title: "Scaffold Your Foundry Payments Project",
+            description: "Set up a complete Foundry project for on-chain payments. Initialise forge init, install OpenZeppelin, configure foundry.toml for Fuji, and confirm forge build passes.",
+          },
+          {
+            id: "Q2",
+            points: 25,
+            title: "Write the PaymentSplitter Contract",
+            description: "Implement a Solidity PaymentSplitter that accepts an ERC-20 token and splits a payment between two recipients. Import from OpenZeppelin. Emit an event on every split. forge build must pass with zero errors.",
+          },
+          {
+            id: "Q3",
+            points: 25,
+            title: "Deploy to Fuji and Verify On-Chain",
+            description: "Deploy PaymentSplitter and Escrow contracts to Fuji C-Chain using forge script and the Avalanche CLI key. Confirm deployment on Snowtrace. Share forge script broadcast output and Snowtrace contract links.",
+          },
+          {
+            id: "Q4",
+            points: 20,
+            title: "Execute a Live Split Payment with Cast",
+            description: "Interact with your deployed PaymentSplitter using cast send. Approve the mUSDC spend, execute a 70/30 split, and confirm both recipient balances changed on-chain using cast call.",
+          },
+          {
+            id: "Q5",
+            points: 30,
+            title: "Avalanche Academy — Smart Contracts Certification",
+            description: "Complete the Smart Contracts on Avalanche course on Avalanche Academy. Download your certificate PDF and upload it via Tally. This certification counts toward your certified builder status.",
+          },
+        ].map((q) => (
+          <div
+            key={q.id}
+            className="rounded-2xl bg-gradient-card border-hairline p-5 flex flex-col gap-3"
+          >
+            <div className="flex items-center justify-between">
+              <span className="text-[9px] font-mono uppercase tracking-[0.18em] text-brand-red">Week 2 · {q.id}</span>
+              <span className="text-xs font-mono font-bold text-brand-orange">{q.points} pts</span>
+            </div>
+            <h3 className="font-display font-semibold tracking-tight text-sm leading-snug">{q.title}</h3>
+            <p className="text-xs text-muted-foreground leading-relaxed flex-1">{q.description}</p>
+            <a
+              href={TALLY_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 self-start rounded-lg border border-brand-red/40 bg-brand-red/10 hover:bg-brand-red/20 px-3 py-1.5 text-xs font-medium text-brand-red transition-colors"
+            >
+              Submit on Tally
+              <ExternalLink className="h-3 w-3" />
+            </a>
+          </div>
+        ))}
+        <div className="rounded-2xl bg-gradient-card border-hairline p-5 flex flex-col gap-3">
+          <div className="flex items-center justify-between">
+            <span className="text-[9px] font-mono uppercase tracking-[0.18em] text-muted-foreground">Live Standings</span>
+          </div>
+          <h3 className="font-display font-semibold tracking-tight text-sm">Quest Tracker &amp; Leaderboard</h3>
+          <p className="text-xs text-muted-foreground leading-relaxed flex-1">
+            Check your total points, quest completion status, and where you rank among all Mini Hack builders.
+          </p>
+          <a
+            href={TRACKER_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 self-start rounded-lg border border-border bg-secondary/60 hover:bg-secondary px-3 py-1.5 text-xs font-medium transition-colors"
+          >
+            Open Leaderboard
+            <ExternalLink className="h-3 w-3" />
+          </a>
+        </div>
+      </div>
+    </section>
+
+    {/* ─── WEEK 2 TEMPLATE UPDATE ─── */}
+    <section className="mb-10 sm:mb-16">
+      <div className="rounded-2xl bg-gradient-card border-hairline p-4 sm:p-6 md:p-8">
+        <div className="flex items-start gap-3 mb-4">
+          <GitMerge className="h-5 w-5 text-brand-orange shrink-0 mt-0.5" />
+          <h3 className="font-display text-lg font-semibold tracking-tight">Pull Week 2 starter code from the template</h3>
+        </div>
+        <p className="text-sm text-muted-foreground mb-4">
+          The Cohort 1 template repo has been updated with Week 2 Foundry starter code. Pull the latest before starting your quests.
+        </p>
+        <pre className="rounded-xl bg-surface-2 border border-border/60 p-3 sm:p-4 text-xs font-mono text-foreground/80 overflow-x-auto mb-4 leading-relaxed whitespace-pre">
+{`git fetch upstream
+git checkout main
+git merge upstream/main`}
+        </pre>
+        <p className="text-sm text-muted-foreground mb-3">The <code className="text-xs bg-surface-2 px-1.5 py-0.5 rounded border border-border/60">week2/</code> folder contains:</p>
+        <ul className="space-y-1.5 text-sm text-muted-foreground">
+          {[
+            "PaymentSplitter.sol and Escrow.sol starter contracts",
+            "DeployPayments.s.sol deployment script",
+            "PaymentSplitter.t.sol unit tests",
+            "foundry.toml pre-configured for Fuji",
+            ".env.example with all Week 2 environment variables",
+            "README.md with full quest instructions and cast commands",
+          ].map((item) => (
+            <li key={item} className="flex gap-2">
+              <span className="text-brand-orange shrink-0 mt-0.5">·</span>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+        <div className="mt-5">
+          <a
+            href="https://github.com/Talent-Index/minihack-cohort1-template"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-secondary/60 hover:bg-secondary hover:border-brand-red/40 px-3 py-1.5 text-sm font-medium transition-colors"
+          >
+            View Cohort 1 Template on GitHub
+            <ExternalLink className="h-3.5 w-3.5 text-muted-foreground" />
+          </a>
+        </div>
       </div>
     </section>
 
