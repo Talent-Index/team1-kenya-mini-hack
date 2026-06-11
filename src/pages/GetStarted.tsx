@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 
 const TELEGRAM_URL = "https://t.me/avaxDAOAfrica/3";
 const TALLY_URL = "https://tally.so/r/rjv4Zo";
+const TALLY_W2_URL = "https://tally.so/r/Y5qG65";
 const HANDBOOK_URL =
   "https://futuristic-dog-9aa.notion.site/Avalanche-Team1-Kenya-Mini-Hack-2a61447232f181d182fec1d63817b3bd";
 const WHATSAPP_URL = "https://chat.whatsapp.com/JEOKw9yjlKcGbbdRlC5d12";
@@ -359,7 +360,7 @@ const GetStarted = () => (
             <h3 className="font-display font-semibold tracking-tight text-sm leading-snug">{q.title}</h3>
             <p className="text-xs text-muted-foreground leading-relaxed flex-1">{q.description}</p>
             <a
-              href={TALLY_URL}
+              href={TALLY_W2_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 self-start rounded-lg border border-brand-red/40 bg-brand-red/10 hover:bg-brand-red/20 px-3 py-1.5 text-xs font-medium text-brand-red transition-colors"
