@@ -627,6 +627,30 @@ git merge upstream/main`}
       </div>
     </section>
 
+    {/* ─── GUIDE CALLOUT ─── */}
+    <section className="mb-10 sm:mb-16">
+      <div className="rounded-2xl bg-gradient-card border-hairline p-6 md:p-8 flex flex-col sm:flex-row sm:items-center gap-6">
+        <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-brand shadow-glow shrink-0">
+          <BookOpen className="h-5 w-5 text-primary-foreground" />
+        </div>
+        <div className="flex-1">
+          <h3 className="font-display text-lg font-semibold tracking-tight mb-1">Need more detail?</h3>
+          <p className="text-sm text-muted-foreground leading-relaxed">
+            The full builder guide covers every week, every quest, every command, and exactly what
+            the reviewer checks for.
+          </p>
+        </div>
+        <a
+          href="https://github.com/Talent-Index/minihack-cohort1-template/blob/main/CONTRIBUTING_GUIDE.md"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="shrink-0 inline-flex items-center gap-1.5 rounded-lg bg-brand-red text-primary-foreground hover:bg-brand-red/90 px-4 py-2 text-sm font-medium transition-colors whitespace-nowrap"
+        >
+          Read the contribution guide →
+        </a>
+      </div>
+    </section>
+
     {/* ─── BOTTOM CTA ─── */}
     <section className="text-center">
       <h2 className="font-display text-2xl md:text-3xl font-semibold tracking-tight mb-3">Ready to build?</h2>
