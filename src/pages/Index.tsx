@@ -12,6 +12,7 @@ import { ApplyButton } from "@/components/ApplyButton";
 import { FAQ } from "@/components/FAQ";
 import { useEcosystemProjects } from "@/lib/github";
 import { ProjectShowcase } from "@/components/ProjectShowcase";
+import { BuilderGuideSection } from "@/components/BuilderGuideSection";
 
 const Index = () => {
   const { data: projects } = useEcosystemProjects();
@@ -82,6 +83,11 @@ const Index = () => {
           description="Top projects by activity from the Kenyan ecosystem."
         />
         <FeaturedBuilders />
+      </section>
+
+      {/* ─── BUILDER GUIDE ─── */}
+      <section className="container py-16 md:py-24">
+        <BuilderGuideSection />
       </section>
 
       {/* ─── COMMUNITY ─── */}
