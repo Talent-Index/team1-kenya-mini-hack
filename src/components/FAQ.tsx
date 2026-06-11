@@ -8,11 +8,11 @@ import {
 const faqs = [
   {
     q: "What is the Team1 Kenya Mini-Hack?",
-    a: "A 3-month builder program (June–August 2026) where Kenyan developers, founders, and teams build real products on Avalanche. Each month focuses on a specific track: Payments, Gamification, and Agentic Systems — culminating in a hackathon on August 28.",
+    a: "A 3-month builder program (June–August 2026) where Kenyan developers and builders ship real products on Avalanche. Each month focuses on a specific track: Payments, Gamification, and Agentic Systems — culminating in a hackathon on August 28.",
   },
   {
     q: "Who can apply?",
-    a: "Any developer, designer, founder, or team based in or connected to Kenya. Whether you're a student, indie hacker, or startup — if you're building on Avalanche, you're welcome.",
+    a: "Any developer, designer, or builder based in or connected to Kenya. Whether you're a student, indie hacker, or part of a team — if you're building on Avalanche, you're welcome.",
   },
   {
     q: "Do I need to know Solidity or Avalanche?",
